@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundMusic = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // Form1
@@ -48,6 +50,7 @@
         #endregion
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Timer backgroundMusic;
     }
 }
 

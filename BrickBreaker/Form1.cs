@@ -7,17 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace BrickBreaker
 {
     public partial class Form1 : Form
     {
+        System.Windows.Media.MediaPlayer backMedia = new System.Windows.Media.MediaPlayer();
+
+
         public Form1()
         {
             InitializeComponent();
             ChangeScreen(this, new MenuScreen());
-        }
+            backMedia.Open(new Uri(Application.StartupPath + "/Resources/backgroundMusic.mp3"));
 
+            backMedia.MediaEnded += new EventHandler(backMedia_MediaEnded);
+            backMedia.Play();
+        }
+        private void backMedia_MediaEnded(object sender, EventArgs e)
+
+        {
+
+            backMedia.Stop();
+
+            backMedia.Play();
+
+        }
         public static void ChangeScreen(object sender, UserControl next)
         {
             Form f; // will either be the sender or parent of sender
